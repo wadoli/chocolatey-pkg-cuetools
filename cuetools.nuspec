@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Reference. Chocolatey uses a special version of NuGet.Core that allows us to do more than was initially possible. As such there are certain things to be aware of:
+
+* the package xmlns schema url may cause issues with nuget.exe
+* Any of the following elements can ONLY be used by choco tools - projectSourceUrl, docsUrl, mailingListUrl, bugTrackerUrl, packageSourceUrl, provides, conflicts, replaces 
+* nuget.exe can still install packages with those elements but they are ignored. Any authoring tools or commands will error on those elements 
+-->
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <!-- This section is about this package, although id and version have ties back to the software -->
+    <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
+    <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
+    <id>cuetools</id>
+    <!-- version should MATCH as closely as possible with the underlying software -->
+    <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
+    <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
+    <version>2.1.9</version>
+    <packageSourceUrl>https://github.com/wadoli/chocolatey-pkg-cuetools</packageSourceUrl>
+    <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
+    <owners>wadoli</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <!-- This section is about the software itself -->
+    <title>CUETools (Portable)</title>
+    <authors>Gregory S. Chudov (gchudov@gmail.com), Moitah (moitah@yahoo.com), others</authors>
+    <projectUrl>http://cue.tools/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/gchudov/cuetools.net/master/CUETools/cue2.ico</iconUrl>
+    <!-- copyright is usually years and software vendor, but not required for internal feeds -->
+    <copyright>Copyright (C) 2008-2021 Gregory S. Chudov (gchudov@gmail.com), Copyright (C) 2006-2008  Moitah (moitah@yahoo.com)</copyright>
+    <licenseUrl>https://github.com/gchudov/cuetools.net/raw/master/CUETools/License.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/gchudov/cuetools.net/</projectSourceUrl>
+    <docsUrl>http://cue.tools/wiki/CUETools</docsUrl>
+    <mailingListUrl>https://hydrogenaud.io/index.php/board,74.0.html</mailingListUrl>
+    <bugTrackerUrl>https://github.com/gchudov/cuetools.net/issues</bugTrackerUrl>
+    <tags>lossless audio conversion  WAV FLAC APE lossyWAV ALAC TTA WavPack</tags>
+    <summary>CUETools is a tool for lossless audio/CUE sheet format conversion.</summary>
+    <description>CUETools is a tool for lossless audio/CUE sheet format conversion. It includes CUERipper, a utility for extracting digital audio from CDs. The goal is to make sure the album image is preserved accurately. A lossless disc image must be lossless not only in preserving contents of the audio tracks, but also in preserving gaps and CUE sheet contents.</description>
+    <releaseNotes>Codecs: Update WavPack to 5.4.0
+Update Russian translation
+EACPlugin: Add Newtonsoft.Json.dll
+Allow three dots at the end of album titles
+Update UnRAR DLLs to version 6.01
+Fix C2 error mode for selected drives (LG GH24NSD1, ASUS DRW-24D5MT)
+Codecs: Update libmp3lame plugin dlls to 3.100
+Codecs: Update libFLAC to 1.3.3 git 27c6157. This fixes an issue with compression efficiency, depending on CPU type.
+CUERipper: Add access key shortcuts, update TabIndex
+CUETools: Add and update access key shortcuts
+CUETools: Add tooltips to frmChoice buttons</releaseNotes>
+    <!-- =============================== -->  
+
+    <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
+    <dependencies>
+      <dependency id="dependency-windows10" version="10.1703" />
+      <dependency id="vcredist140" />
+    </dependencies>
+
+    <!--<provides>NOT YET IMPLEMENTED</provides>-->
+    <!--<conflicts>NOT YET IMPLEMENTED</conflicts>-->
+    <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
+  </metadata>
+  <!-- this section controls what actually gets packaged into the Chocolatey package -->
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
