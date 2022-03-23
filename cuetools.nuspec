@@ -1,11 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Read this before creating packages: https://docs.chocolatey.org/en-us/create/create-packages -->
+<!-- It is especially important to read the above link to understand additional requirements when publishing packages to the community feed aka dot org (https://chocolatey.org/packages). -->
+<!-- Test your packages in a test environment: https://github.com/chocolatey/chocolatey-test-environment -->
+
 <!--
 This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Reference. Chocolatey uses a special version of NuGet.Core that allows us to do more than was initially possible. As such there are certain things to be aware of:
 
 * the package xmlns schema url may cause issues with nuget.exe
-* Any of the following elements can ONLY be used by choco tools - projectSourceUrl, docsUrl, mailingListUrl, bugTrackerUrl, packageSourceUrl, provides, conflicts, replaces 
-* nuget.exe can still install packages with those elements but they are ignored. Any authoring tools or commands will error on those elements 
+* Any of the following elements can ONLY be used by choco tools - projectSourceUrl, docsUrl, mailingListUrl, bugTrackerUrl, packageSourceUrl, provides, conflicts, replaces
+* nuget.exe can still install packages with those elements but they are ignored. Any authoring tools or commands will error on those elements
 -->
+<!-- You can embed software files directly into packages, as long as you are not bound by distribution rights. -->
+<!-- * If you are an organization making private packages, you probably have no issues here -->
+<!-- * If you are releasing to the community feed, you need to consider distribution rights. -->
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
@@ -18,7 +25,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.1.9</version>
+    <version>2.2.1</version>
     <packageSourceUrl>https://github.com/wadoli/chocolatey-pkg-cuetools</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>wadoli</owners>
@@ -28,35 +35,43 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about the software itself -->
     <title>CUETools (Portable)</title>
     <authors>Gregory S. Chudov (gchudov@gmail.com), Moitah (moitah@yahoo.com), others</authors>
+    <!-- projectUrl is required for the community feed -->
     <projectUrl>http://cue.tools/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/gchudov/cuetools.net/master/CUETools/cue2.ico</iconUrl>
     <!-- copyright is usually years and software vendor, but not required for internal feeds -->
-    <copyright>Copyright (C) 2008-2021 Gregory S. Chudov (gchudov@gmail.com), Copyright (C) 2006-2008  Moitah (moitah@yahoo.com)</copyright>
+    <copyright>Copyright (C) 2006-2008  Moitah (moitah@yahoo.com), Copyright (C) 2008-2022  Gregory S. Chudov (gchudov@gmail.com)</copyright>
+    <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://github.com/gchudov/cuetools.net/raw/master/CUETools/License.txt</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/gchudov/cuetools.net/</projectSourceUrl>
     <docsUrl>http://cue.tools/wiki/CUETools</docsUrl>
     <mailingListUrl>https://hydrogenaud.io/index.php/board,74.0.html</mailingListUrl>
     <bugTrackerUrl>https://github.com/gchudov/cuetools.net/issues</bugTrackerUrl>
-    <tags>lossless audio conversion  WAV FLAC APE lossyWAV ALAC TTA WavPack</tags>
-    <summary>CUETools is a tool for lossless audio/CUE sheet format conversion.</summary>
-    <description>CUETools is a tool for lossless audio/CUE sheet format conversion. It includes CUERipper, a utility for extracting digital audio from CDs. The goal is to make sure the album image is preserved accurately. A lossless disc image must be lossless not only in preserving contents of the audio tracks, but also in preserving gaps and CUE sheet contents.</description>
-    <releaseNotes>Codecs: Update WavPack to 5.4.0
-Update Russian translation
-EACPlugin: Add Newtonsoft.Json.dll
-Allow three dots at the end of album titles
-Update UnRAR DLLs to version 6.01
-Fix C2 error mode for selected drives (LG GH24NSD1, ASUS DRW-24D5MT)
-Codecs: Update libmp3lame plugin dlls to 3.100
-Codecs: Update libFLAC to 1.3.3 git 27c6157. This fixes an issue with compression efficiency, depending on CPU type.
-CUERipper: Add access key shortcuts, update TabIndex
-CUETools: Add and update access key shortcuts
-CUETools: Add tooltips to frmChoice buttons</releaseNotes>
-    <!-- =============================== -->  
+    <tags>opencl cuesheet cue lossless-compression-algorithm cd-ripper ALAC APE FLAC TTA WAV WavPack audio conversion convert cue-sheet cueripper lossless lossyWAV</tags>
+    <summary>CUETools is a tool for lossless audio/CUE sheet format conversion. CUERipper is a utility for extracting digital audio from CDs.</summary>
+    <description># CUETools
+CUETools is a tool for lossless audio/CUE sheet format conversion. The goal is to make sure the album image is preserved accurately. A lossless disc image must be lossless not only in preserving contents of the audio tracks, but also in preserving gaps and CUE sheet contents. Many applications lose vital information upon conversion, and don't support all possible CUE sheet styles. For example, foobar2000 loses disc pre-gap information when converting an album image, and doesn't support gaps appended (noncompliant) CUE sheets.
+# Supported formats
+Supports WAV, FLAC, APE, LossyWAV, ALAC, TTA, and WavPack audio input/output. Audio must be 16-bit, 44.1kHz samples stereo (i.e. CD PCM). Supports every CUE sheet style (embedded, single file, gaps appended/prepended/left out). It is also possible to process a set of audio files in a directory without a CUE sheet, or use a RAR archive as an input without unpacking it.
+# CUERipper
+CUERipper is a utility for extracting digital audio from CDs, an open-source alternative to EAC. It has a lot fewer configuration options, so is somewhat easier to use, and is included in CUETools package. It supports MusicBrainz and freeDB metadata databases, AccurateRip and CTDB.</description>
+    <releaseNotes>CUETools 2.2.1 Changelog:
+
+* CUERipper: Fix index error when 1st track is data track
+* CUETools, CUERipper: Add freedb site address setting.
+* This setting can also be used to disable retrieving freedb metadata entries.
+* taglib-sharp: Fix width and height of album art in flac tags
+* CUERipper: Save metadata before Exit
+* CUETools: Consider the Album Art search option "None"
+* CUETools: Fix CTDB.FetchFile Exception, if "Verify using CTDB" is disabled
+* CUERipper: Add a blank entry to the metadata selection drop-down list
+* CUERipper: Save metadata before Eject
+* Fix C2 mode for HL-DT-ST BD-RE BU40N</releaseNotes>
+    <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
     <dependencies>
-      <dependency id="dependency-windows10" version="10.1703" />
+      <dependency id="netfx-4.7.2" />
       <dependency id="vcredist140" />
     </dependencies>
 
