@@ -34,12 +34,12 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
     <title>CUETools (Portable)</title>
-    <authors>Gregory S. Chudov (gchudov@gmail.com), Moitah (moitah@yahoo.com), others</authors>
+    <authors>Gregory S. Chudov, Moitah, others</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>http://cue.tools/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/gchudov/cuetools.net/master/CUETools/cue2.ico</iconUrl>
+    <iconUrl>https://github.com/gchudov/cuetools.net/raw/master/CUETools/Resources/cuetools.png</iconUrl>
     <!-- copyright is usually years and software vendor, but not required for internal feeds -->
-    <copyright>Copyright (C) 2006-2008  Moitah (moitah@yahoo.com), Copyright (C) 2008-2022  Gregory S. Chudov (gchudov@gmail.com)</copyright>
+    <copyright>Copyright (C) 2006-2008  Moitah, Copyright (C) 2008-2022  Gregory S. Chudov</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://github.com/gchudov/cuetools.net/raw/master/CUETools/License.txt</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -72,7 +72,7 @@ CUERipper is a utility for extracting digital audio from CDs, an open-source alt
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
     <dependencies>
       <dependency id="netfx-4.7.2" />
-      <dependency id="vcredist140" />
+      <dependency id="vcredist140" version="14.20.27508.1" />
     </dependencies>
 
     <!--<provides>NOT YET IMPLEMENTED</provides>-->
