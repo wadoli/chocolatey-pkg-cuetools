@@ -84,3 +84,4 @@ CUERipper is a utility for extracting digital audio from CDs, an open-source alt
     <file src="tools\**" target="tools" />
   </files>
 </package>
+
