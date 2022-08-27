@@ -16,4 +16,3 @@ $packageArgs = @{
 Install-ChocolateyZipPackage @packageArgs
 
 ## See https://docs.chocolatey.org/en-us/create/functions/
-
