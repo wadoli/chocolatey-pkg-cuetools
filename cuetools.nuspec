@@ -82,8 +82,8 @@ CUERipper is a utility for extracting digital audio from CDs, an open-source alt
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
     <dependencies>
-      <dependency id="dotnetfx" version="4.7" />
-      <dependency id="vcredist140" version="14.34.31931" />
+      <dependency id="dotnetfx" version="4.7.2.20210909" />
+      <dependency id="vcredist140" version="14.29.30139.20220402" />
     </dependencies>
 
     <!--<provides>NOT YET IMPLEMENTED</provides>-->
