@@ -7,8 +7,8 @@ $packageArgs = @{
   fileType      = 'zip'
   silentArgs    = "/S"
   validExitCodes= @(0) #please insert other valid exit codes here
-  url           = "https://github.com/gchudov/cuetools.net/releases/download/v2.2.3/CUETools_2.2.3.zip"  #download URL, HTTPS preferrred
-  checksum      = '017484aab76040737713a9a638eb696db63df0a5f792973744b36a41bd60fb98'
+  url           = "https://github.com/gchudov/cuetools.net/releases/download/v2.2.4/CUETools_2.2.4.zip"  #download URL, HTTPS preferrred
+  checksum      = 'e7a1906b0edd247435aabcd56e4c0ff1076edf9b773951ac73dd9725816778ff'
   checksumType  = 'sha256'
   destination   = $toolsDir
 }
