@@ -41,7 +41,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- copyright is usually years and software vendor, but not required for internal feeds -->
     <copyright>Copyright (C) 2006-2008  Moitah, Copyright (C) 2008-2023  Gregory S. Chudov</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
-    <licenseUrl>https://github.com/gchudov/cuetools.net/raw/master/CUETools/License.txt</licenseUrl>
+    <licenseUrl>https://github.com/gchudov/cuetools.net/raw/master/License.txt</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/gchudov/cuetools.net/</projectSourceUrl>
     <docsUrl>http://cue.tools/wiki/CUETools</docsUrl>
